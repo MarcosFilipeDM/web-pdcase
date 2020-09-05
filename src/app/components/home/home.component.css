@@ -1,0 +1,50 @@
+.content {
+    width: 95%;
+    margin: auto;
+    margin-top: 60px;
+}
+
+.page-title {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.add-button {
+    margin: 15px 0;
+    background-color: rgb(2, 122, 2);
+    color: rgb(255, 255, 255);
+}
+
+.add-button .icon-button {
+    color: rgb(255, 255, 255);
+}
+
+table{
+    width: 100%;
+}
+
+.filter {
+    display: block;
+    font-size: 13px;
+    width: 25%;
+    margin-top: 10px;
+}
+
+.mat-cell{
+    font-size: 13px;
+}
+
+.mat-column-options {
+    flex: 0 0 10%;
+}
+
+::ng-deep.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #c1f0ea;
+}
+
+::ng-deep.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #05a592;
+}

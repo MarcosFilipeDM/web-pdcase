@@ -1,0 +1,65 @@
+<div class="content" role="main">
+    <span class="page-title">Cadastro de usuários</span>
+    <mat-divider style="margin-bottom: 10px;"></mat-divider>
+
+    <button mat-raised-button aria-label="Adicionar usuário" class="add-button" (click)="openUsersModal(null)">
+        <mat-icon class="icon-button">add_circle</mat-icon> Criar Usuário
+    </button>
+
+    <div *ngIf="dataTable.data.length>0">
+        <mat-form-field class="filter" >
+            <mat-label>Filtrar por nome, username e email</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+    
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataTable">
+                <ng-container matColumnDef="options">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="warn" matTooltip="Deletar usuário" (click)="deleteUser(element)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" matTooltip="Editar usuário" (click)="getUser(element.id)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <mat-slide-toggle [(ngModel)]="element.enabled" (change)="alterStatus(element.id)">{{ isEnabled(element.enabled) }}</mat-slide-toggle>
+                    </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="surname">
+                    <mat-header-cell *matHeaderCellDef> Sobrenome </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.surName}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="username">
+                    <mat-header-cell *matHeaderCellDef> UserName </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="email">
+                    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="phone">
+                    <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="registerDate">
+                    <mat-header-cell *matHeaderCellDef> Data de Registro </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.registerDate | date: 'dd/MM/yyyy'}} </mat-cell>
+                </ng-container>
+    
+                <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+            </table>
+        </div>
+    </div>
+</div>

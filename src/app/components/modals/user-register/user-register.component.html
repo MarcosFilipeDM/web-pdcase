@@ -1,0 +1,38 @@
+<span class="modalTitle">{{modalTitle}}</span>
+<mat-divider style="margin-bottom: 10px;"></mat-divider>
+
+<mat-form-field class="example-full-width userInput" appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="user.name" name="name" required>
+</mat-form-field>
+
+<mat-form-field class="example-full-width userInput" appearance="outline">
+    <mat-label>Sobrenome</mat-label>
+    <input matInput [(ngModel)]="user.surName" name="surName" required>
+</mat-form-field>
+
+<mat-form-field class="example-full-width userInput" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="text" [formControl]="email" email required>
+</mat-form-field>
+
+<mat-form-field class="example-full-width userInput" appearance="outline">
+    <mat-label>Telefone</mat-label>
+    <input matInput type="tel" [(ngModel)]="user.phone" tel name="phone">
+</mat-form-field>
+
+<mat-form-field class="example-full-width userInput" appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="user.username" name="username" required>
+</mat-form-field>
+
+<mat-form-field class="example-full-width userPass" appearance="outline">
+    <mat-label>Senha</mat-label>
+    <input matInput type="password" [(ngModel)]="user.password" name="password" required>
+</mat-form-field>
+<mat-slide-toggle [(ngModel)]="user.enabled">Usuário: {{ isEnabled(user.enabled) }}</mat-slide-toggle>
+
+<div class="btnModal" style="float: left; width: 100%;">
+    <button mat-raised-button color="warn" style="width: 40%;" (click)="close()">Cancelar</button>
+    <button mat-raised-button color="primary" style="width: 40%;" (click)="save()">Salvar</button>
+</div>
